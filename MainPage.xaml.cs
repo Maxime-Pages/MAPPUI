@@ -2,23 +2,24 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
 	public MainPage()
 	{
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private async void BugSweepclick(object sender, EventArgs e)
 	{
-		count++;
+		//await Navigation.PushAsync(new BugSweeper.MainPage());
+	}
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+	private async void CalcClick(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new Calculator.MainPage());
+	}
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+	private async void GoLClick(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new GameOfLife.MainPage());
 	}
 }
 
